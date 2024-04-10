@@ -50,9 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
     commentText = document.querySelector(".comment__text"),
     commentBtn = document.querySelector(".comment__btn");
 
+  const generateUniqueId = () => {
+    const timestamp = Date.now().toString(16);
+    const randomNum = Math.floor(Math.random() * 10000).toString(16);
+    return timestamp + randomNum;
+  };
+
   commentBtn.addEventListener("click", () => {
     const newComment = `
-      <div class="comments" id="comment0" style="display:block">
+      <div class="comments" id="comment${generateUniqueId()}" style="display:block">
         <div class="profile">
           <img src="assets/user.jpg">
         </div>
